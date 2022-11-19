@@ -1,0 +1,4 @@
+# Ignoring virtual env files
+venv
+# Ignoring w2v zip 
+w2v.zip
