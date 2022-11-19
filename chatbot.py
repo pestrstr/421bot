@@ -583,11 +583,6 @@ def run_chatbot(model, word2vec):
 
 # ----------------------------------------------------------------------------
 
-
-
-
-# Use this main function to test your code. Sample code is provided to assist with the assignment,
-# feel free to change/remove it. In project components, this function might be graded, see rubric for details.
 if __name__ == "__main__":
 
     # Set things up ahead of time by training the TfidfVectorizer and Naive Bayes model
@@ -602,12 +597,8 @@ if __name__ == "__main__":
     svm = train_model(svm, word2vec, documents, labels)
     mlp = train_model(mlp, word2vec, documents, labels)
 
-    # Uncomment the line below to test out the w2v() function.  Make sure to try a few words that are unlikely to
-    # exist in its dictionary (e.g., "covid") to see how it handles those.
     # print("Word2Vec embedding for {0}:\t{1}".format("vaccine", w2v(word2vec, "vaccine")))
 
-    # Test the machine learning models to see how they perform on the small test set provided.
-    # Write a classification report to a CSV file with this information.
     # Loading the dataset
     test_documents, test_labels = load_as_list("test.csv")
     models = [logistic, svm, mlp]
@@ -625,8 +616,7 @@ if __name__ == "__main__":
         i += 1
     outfile.close()
 
-    # For reference, let us also compute the accuracy for the Naive Bayes model from Project Part 1
-    # Fill in the code templates from your previous submission and uncomment the code below
+    # For reference, let us also compute the accuracy for the Naive Bayes model
     # vectorizer, tfidf_train = vectorize_train(documents)
     # lexicon = [preprocessing(d) for d in test_documents]
     # tfidf_test = vectorizer.transform(lexicon)
