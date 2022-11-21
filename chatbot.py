@@ -17,10 +17,8 @@ import re
 import csv
 import nltk
 
-
 # the provided w2v.pkl file which contains the pre-trained word2vec representations
 EMBEDDING_FILE = "w2v.pkl"
-
 
 # Function: load_w2v
 # filepath: path of w2v.pkl

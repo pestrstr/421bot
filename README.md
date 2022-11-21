@@ -13,6 +13,11 @@ Optionally, you can setup a python virtual enviroment before installing dependen
 You can install all the needed dependencies just by running <br/>
 
 ` pip install -r requirements.txt `
+
+Then, download required modules for nltk by running <br/>
+
+` python install.py `
+
 # Running the Chatbot
 Run the chatbot by running the script chatbot.py
 
