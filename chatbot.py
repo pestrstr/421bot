@@ -41,7 +41,7 @@ def load_as_list(fname):
     return documents, labels
 
 
-# Function: extract_user_info, see project statement for more details
+# Function: extracting user info
 # user_input: A string of arbitrary length
 # Returns: name as string
 def extract_user_info(user_input):
@@ -66,7 +66,7 @@ def get_tokens(inp_str):
 def get_sentences(inp_str):
     return nltk.tokenize.sent_tokenize(inp_str) # language='english' by default
 
-# Function: preprocessing, see project statement for more details
+# Function: preprocessing user input
 # Args:
 #   user_input: A string of arbitrary length
 # Returns: A string of arbitrary length
@@ -88,7 +88,7 @@ def preprocessing(user_input):
     return modified_input[0:-1]
 
 
-# Function: vectorize_train, see project statement for more details
+# Function: vectorize_train
 # training_documents: A list of strings
 # Returns: An initialized TfidfVectorizer model, and a document-term matrix, dtype: scipy.sparse.csr.csr_matrix
 def vectorize_train(training_documents):
@@ -101,7 +101,7 @@ def vectorize_train(training_documents):
     return vectorizer, tfidf_train
 
 
-# Function: vectorize_test, see project statement for more details
+# Function: vectorize_test
 # vectorizer: A trained TFIDF vectorizer
 # user_input: A string of arbitrary length
 # Returns: A sparse TFIDF representation of the input string of shape (1, X), dtype: scipy.sparse.csr.csr_matrix
@@ -362,7 +362,6 @@ def summarize_analysis(num_words, wps, num_pronouns, num_prp, num_articles, num_
 
     # Creating a reference dictionary with keys = linguistic features, and values = psychological correlates.
     # informative_correlates should hold a subset of three values from this dictionary.
-    # DO NOT change these values for autograder to work correctly
     psychological_correlates = {}
     psychological_correlates["num_words"] = "Talkativeness, verbal fluency"
     psychological_correlates["wps"] = "Verbal fluency, cognitive complexity"
@@ -408,7 +407,6 @@ def summarize_analysis(num_words, wps, num_pronouns, num_prp, num_articles, num_
     return informative_correlates
 
 
-# -------------------------- New in Project Part 4 --------------------------
 # Function: welcome_state
 # This function does not take any input
 # Returns: A string indicating the next state
@@ -417,9 +415,7 @@ def summarize_analysis(num_words, wps, num_pronouns, num_prp, num_articles, num_
 # the welcome message!  In this state, the chatbot greets the user.
 def welcome_state():
     # Display a welcome message to the user
-    # *** Replace the line below with your updated welcome message from Project Part 1 ***
     print("Welcome to the CS 421 chatbot!\n")
-
     return ""
 
 
@@ -445,7 +441,7 @@ def get_name_state():
 # Function: sentiment_analysis_state
 # model: The trained classification model used for predicting sentiment (best one)
 # word2vec: The word2vec dictionary
-# first_time (bool): indicates whether the state is active for the first time. HINT: use this parameter to determine next state.
+# first_time (bool): indicates whether the state is active for the first time.
 # Returns: A string indicating the next state
 #
 # This function implements a state that asks the user for input and predicts their sentiment
@@ -460,7 +456,7 @@ def sentiment_analysis_state(model, word2vec, first_time=False):
     w2v_test = string2vec(word2vec, user_input)
 
     # label = None
-    label = model.predict(w2v_test.reshape(1, -1)) # Use this if you select one of the other models (swap mlp for svm, etc.)
+    label = model.predict(w2v_test.reshape(1, -1))
 
     if label == 0:
         print("Hmm, it seems like you're feeling a bit down.")
@@ -549,8 +545,7 @@ def check_next_state():
 # This function implements the main chatbot system --- it runs different
 # dialogue states depending on rules governed by the internal dialogue
 # management logic, with each state handling its own input/output and internal
-# processing steps.  The dialogue management logic should be implemented as
-# follows:
+# processing steps.
 # welcome_state() (IN STATE) -> get_info_state() (OUT STATE)
 # get_info_state() (IN STATE) -> sentiment_analysis_state() (OUT STATE)
 # sentiment_analysis_state() (IN STATE) -> stylistic_analysis_state() (OUT STATE - First time sentiment_analysis_state() is run)
