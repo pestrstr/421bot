@@ -6,7 +6,7 @@ and put it on your local repo folder. Then extract w2v.zip content on the same d
 # Installing requirements
 Optionally, you can setup a python virtual enviroment before installing dependencies:
 
- `pip install venv` <br/>
+ `python -m pip install --user virtualenv` <br/>
 ` python -m venv venv `<br/>
 ` source venv/bin/activate `<br/>
 
