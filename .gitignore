@@ -2,3 +2,5 @@
 venv
 # Ignoring w2v zip 
 w2v.zip
+# Ignoring w2v pkl
+w2v.pkl
